@@ -6,11 +6,11 @@
 ### 202-07-11 串接 Postgresql 完成。
 
 #### 步驟
-    1. 安裝 Nuget package
-    ```bash
-        dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
-        dotnet add Microsoft.EntityFrameworkCore.Design
-    ```
+1. 安裝 Nuget package
+```bash
+    dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+    dotnet add Microsoft.EntityFrameworkCore.Design
+```
 2. 定義 DataContext 檔案 Api.Data.PgSQLContext.cs
 3. 建立 EF migration，指令：```dotnet ef migrations add InitialCreate ```
 4. 執行 migration，指令：```dotnet ef database update```
