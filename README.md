@@ -6,7 +6,7 @@
 ### 202-07-11 串接 Postgresql 完成。
 
 #### 步驟
-    1. 安裝 Nuget package
+1. 安裝 Nuget package
 ```bash
     dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
     dotnet add Microsoft.EntityFrameworkCore.Design
