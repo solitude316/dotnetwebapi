@@ -1,7 +1,8 @@
-namespace Entities;
+namespace Api.Entities;
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using Api.Enums;
 
 public class User
 {
@@ -10,23 +11,23 @@ public class User
 
     [Required]
     [DataType(DataType.EmailAddress)]
-    public string? email {get; set;}
+    public string email {get; set;} = default!;
     
     [Required]
     [StringLength(64)]
-    public string? password {get; set;}
+    public string password {get; set;} = default!;
     
     [Required]
-    public string? firstname {get; set;}
+    public string firstname {get; set;} = default!;
     
     [Required]
-    public string? lastname {get; set;}
+    public string lastname {get; set;} = default!;
 
     [DataType(DataType.Date)]
-    public DateTime? Birthday {get; set;}
+    public DateTime? birthday {get; set;} = default!;
     
     [Required]
-    public Enums.Gender gender {get; set;}
+    public Enums.Gender gender {get; set;} = default!;
 
     [Required]
     [DataType(DataType.DateTime)]
@@ -34,10 +35,12 @@ public class User
 
     [Required]
     [DataType(DataType.DateTime)]
-    public DateTime update_date {get; set;}
+    public DateTime update_time {get; set;}
 
     public User()
     {
         id = Guid.NewGuid();
+        create_time = DateTime.Now;
+        update_time = DateTime.Now;
     }
 }

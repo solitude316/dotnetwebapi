@@ -1,6 +1,10 @@
+// using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Api.Data;
 using Api.Helpers;
+using Api.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,7 +20,16 @@ var builder = WebApplication.CreateBuilder(args);
         x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
 
+    // builder.Services.AddScoped<IUserRepo, UserRepo>();
+
+    // builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    //     .AddEntityFrameworkStores<PgSQLContext>();
+
+
     // builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+    builder.Services.AddScoped<IUserRepo, UserRepo>();
+    
 }
 
 

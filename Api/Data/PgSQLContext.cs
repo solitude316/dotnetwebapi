@@ -1,8 +1,8 @@
-namespace Api.Data;
-
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Entities;
+using Api.Entities;
+
+namespace Api.Data;
 
 public class PgSQLContext : DbContext
 {
@@ -20,5 +20,6 @@ public class PgSQLContext : DbContext
     }
 
     // DB set
-    public DbSet<User>? Users {get; set;}
+    public DbSet<User> Users {get; set;} = default!;
+
 }
