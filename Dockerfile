@@ -3,20 +3,21 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
+RUN mkdir Source
 COPY *.sln .
-COPY Api/*.csproj ./Api/
-COPY Api.Test/*.csproj Api.Test/
+COPY Source/Api/*.csproj ./Source/Api/
+COPY Source/Api.Test/*.csproj ./Source/Api.Test/
 RUN dotnet restore
 
 # copy everything else and build app
 
-COPY Api/. ./Api/
-COPY Api.Test/. ./Api.Test/
+COPY Source/Api/. ./Source/Api/
+COPY Source/Api.Test/. ./Source/Api.Test/
 
 
 # Install nuget package
-RUN dotnet add Api/Api.csproj package Newtonsoft.Json 
-RUN dotnet add Api.Test/Api.Test.csproj package Newtonsoft.Json
+RUN dotnet add Source/Api/Api.csproj package Newtonsoft.Json 
+RUN dotnet add Source/Api.Test/Api.Test.csproj package Newtonsoft.Json
 
 RUN dotnet publish -c release -o /app --no-restore
 
