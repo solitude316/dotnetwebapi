@@ -1,21 +1,11 @@
+env.DOCKER_HOST = 'tcp://192.168.122.93:2375'
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'mcr.microsoft.com/dotnet/aspnet:6.0' }
+    }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
         stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying.......'
-            }
+            sh 'dotnet --version'
         }
     }
 }
