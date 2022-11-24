@@ -1,13 +1,15 @@
-env.DOCKER_HOST = 'tcp://192.168.122.93:2375'
-pipeline {
-    agent {
-        docker { image 'mcr.microsoft.com/dotnet/aspnet:6.0' }
-    }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'dotnet --info'
-            }
+node {
+    checkout scm
+
+    docker.withServer('tcp://192.168.122.93:2375', '') {
+        docker.image('mcr.microsoft.com/dotnet/aspnet:6.0') {
+            sh 'dotnet --info'
         }
     }
+
+    // docker.withRegistry('http://192.168.122.93:5000') {
+    //     def customImage = docker.build("dotnetwebapi:${env.BUILD_ID}")
+
+    //     customImage.push()
+    // }
 }
