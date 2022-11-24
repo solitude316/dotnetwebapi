@@ -1,9 +1,13 @@
-node {
-    checkout scm
-
-    docker.withServer('tcp://192.168.122.93:2375', '') {
-        docker.image('mcr.microsoft.com/dotnet/aspnet:6.0') {
-            sh 'dotnet --version'
+env.DOCKER_HOST = 'tcp://192.168.122.93:2375'
+pipeline {
+    agent {
+        docker { image 'mcr.microsoft.com/dotnet/aspnet:6.0' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'dotnet --info'
+            }
         }
     }
 }
