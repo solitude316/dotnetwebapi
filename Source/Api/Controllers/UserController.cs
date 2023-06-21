@@ -36,7 +36,7 @@ public class UserController : ControllerBase
             });
 
             return Ok(new {
-                code = "0000"
+                code = "00001"
             });
         }
         catch (Exception ex)
