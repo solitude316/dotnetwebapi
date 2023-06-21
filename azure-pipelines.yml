@@ -29,6 +29,7 @@ stages:
         tags: |
           $(tag)
     - task: Bash@3
+      displayName: Restart VCCS Container
       inputs:
         targetType: 'inline'
         script: |
