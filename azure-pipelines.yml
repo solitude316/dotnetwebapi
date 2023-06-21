@@ -35,3 +35,4 @@ stages:
           # Write your commands here
           
           echo 'Hello world'
+          touch /tmp/HelloWorld
