@@ -24,5 +24,6 @@ stages:
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        repository: mydotnet
         tags: |
           $(tag)
