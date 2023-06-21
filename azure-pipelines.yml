@@ -2,7 +2,7 @@
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-pool: testing0001
+pool: tg0001
 trigger:
 - main
 
