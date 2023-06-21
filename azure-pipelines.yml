@@ -34,4 +34,5 @@ stages:
       script: |
         # Write your commands here
       
-        echo 'Hello world'
+        echo 'Hello world~~~~~~'
+        tocuh /tmp/mydotnetprojectazurecicdtest
