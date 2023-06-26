@@ -35,4 +35,4 @@ stages:
         script: |
           # Write your commands here
           
-          cd /var/Docker/VCCS && docker-compose down && docker-compose up;
+          cd /var/Docker/VCCS && docker-compose down && docker-compose up -d;
