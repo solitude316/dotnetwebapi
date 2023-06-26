@@ -27,7 +27,7 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         repository: mydotnet
         tags: |
-          $(tag)
+          latest
     - task: Bash@3
       displayName: Restart VCCS Container
       inputs:
@@ -35,5 +35,4 @@ stages:
         script: |
           # Write your commands here
           
-          echo 'Hello world'
-          touch /tmp/HelloWorld
+          cd /var/Docker/VCCS && docker-compose down && docker-compose up;
