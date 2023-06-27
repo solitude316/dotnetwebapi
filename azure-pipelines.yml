@@ -13,26 +13,16 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-- stage: Build
-  displayName: Build image
+- stage: Testing
+  displayName: Testing
   jobs:
-  - job: Build
-    displayName: Build
-    pool: testing0001
+  - job: Testing
+    displayName: Unit Testing
+    pool: 
+      vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
+    - task: DotNetCoreCLI@2
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        repository: mydotnet
-        tags: |
-          latest
-    - task: Bash@3
-      displayName: Restart VCCS Container
-      inputs:
-        targetType: 'inline'
-        script: |
-          # Write your commands here
-          
-          echo 'Hello World!'
+        command: 'test'
+        projects: '**/*.csproj'
+        testRunTitle: 'Test 1'
