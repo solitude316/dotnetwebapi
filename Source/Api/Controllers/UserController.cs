@@ -68,7 +68,7 @@ public class UserController : ControllerBase
         catch(ArgumentNullException)
         {
             return Ok(new {
-                code = "00002"
+                code = "00001"
             });
         }
         catch(Exception ex)
