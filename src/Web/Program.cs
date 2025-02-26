@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using System.Data.SqlClient;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +10,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddScoped<IDbConnection, NpgsqlConnection>((sp) => {
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    return new NpgsqlConnection(connectionString);
+});
+
+
 //Set DB Connection
 var app = builder.Build();
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
