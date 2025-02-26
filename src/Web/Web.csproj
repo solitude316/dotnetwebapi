@@ -13,7 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="Dapper.SqlBuilder" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Npgsql" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 

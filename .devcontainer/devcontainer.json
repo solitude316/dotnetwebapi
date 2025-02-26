@@ -5,12 +5,12 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"features": {
-		"ghcr.io/nikiforovall/devcontainer-features/dotnet-aspire:1": {}
-	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"features": {
+		"ghcr.io/nikiforovall/devcontainer-features/dotnet-aspire:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+	},
 
 	// Configure tool-specific properties.
 	// "customizations": {},
