@@ -1,4 +1,4 @@
-namespace Dotnetwebapi.Web.Controllers;
+namespace DotnetWebApi.Web.Controllers;
 
 using System;
 using System.Collections.Generic;
