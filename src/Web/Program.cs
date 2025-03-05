@@ -9,14 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddScoped<IDbConnection, NpgsqlConnection>((sp) => {
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    return new NpgsqlConnection(connectionString);
-});
-
+builder.AddApplicationServices();
 
 //Set DB Connection
 var app = builder.Build();
